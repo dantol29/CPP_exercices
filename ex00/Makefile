@@ -1,5 +1,5 @@
 COMPILER=c++
-FLAGS=-Wall -Wextra -Werror
+FLAGS=-Wall -Wextra -Werror -std=c++98
 NAME=megaphone
 SRC=megaphone.cpp
 OBJECTS=$(SRC:.c=.o)
