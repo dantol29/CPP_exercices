@@ -3,6 +3,8 @@
 #include <string>
 #include <iostream>
 #include <cstdlib>
+#include <climits>
+#include <limits>
 
 #define RED_TEXT "\033[1;31m"
 #define WHITE_TEXT "\033[1;37m"
@@ -118,6 +120,8 @@ void search(PhoneBook book)
 	{
 		std::cout << "Enter the index to view the contact (Q to exit): ";
 		std::getline(std::cin, line, '\n');
+		if (std::cin.eof())
+    		break;
 		index = atoi(line.c_str());
 		if (line == "Q")
 			return ;
@@ -141,6 +145,8 @@ int main()
 	{
 		std::cout << BLUE_TEXT << "PhoneBook: " << RESET_COLOR;
 		std::getline(std::cin, line, '\n');
+		if (std::cin.eof())
+    		break;
 		if (line == "ADD")
 			add(&book);
 		else if (line == "SEARCH")
@@ -150,5 +156,5 @@ int main()
 		else
 			std::cout << RED_TEXT << "Unknown command (" << line << ")\n" << RESET_COLOR;
 	}
-	std::cout << "PhoneBook is closed" << '\n'; 
+	std::cout << "\nPhoneBook is closed" << '\n'; 
 }
