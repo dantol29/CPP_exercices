@@ -1,14 +1,14 @@
 COMPILER=c++
 FLAGS=-Wall -Wextra -Werror -std=c++98
-NAME=megaphone
+NAME=bank
 SANITAZER=-fsanitize=address
-SRC=megaphone.cpp
+SRC=Account.cpp tests.cpp
 OBJECTS=$(SRC:.c=.o)
 
 all: $(NAME)
 
 $(NAME) : $(OBJECTS)
-		$(COMPILER) $(FLAGS) $(OBJECTS) $(SANITAZER)  -o $(NAME)
+		$(COMPILER) $(FLAGS) $(OBJECTS) -o $(NAME)
 
 fclean:
 	rm -f $(NAME)
