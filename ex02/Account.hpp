@@ -13,6 +13,7 @@
 #define __ACCOUNT_H__
 
 #include <iostream>
+#include <iomanip>
 // ************************************************************************** //
 //                               Account Class                                //
 // ************************************************************************** //
@@ -99,7 +100,14 @@ private:
 	static int	_totalNbWithdrawals;
 
 	static void	_displayTimestamp( void ){
-		std::cout << "[timestamp] ";
+		std::time_t currentTime = std::time(NULL);
+		std::tm when = *std::localtime(&currentTime);
+
+		std::cout << '[' << when.tm_year + 1900 << std::setfill('0') << std::setw(2) << when.tm_mon\
+		<< std::setfill('0') << std::setw(2) << when.tm_mday << '_'\
+		<< std::setfill('0') << std::setw(2) << when.tm_hour\
+		<< std::setfill('0') << std::setw(2) << when.tm_min\
+		<< std::setfill('0') << std::setw(2) << when.tm_sec << "] "; 
 	}
 
 	int				_accountIndex;
