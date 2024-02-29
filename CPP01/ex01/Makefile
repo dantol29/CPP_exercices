@@ -3,14 +3,17 @@ FLAGS=-Wall -Wextra -Werror -std=c++98
 NAME=zombieHorde
 SANITAZER=-fsanitize=address
 SRC=main.cpp zombieHorde.cpp Zombie.cpp
-OBJECTS=$(SRC:.c=.o)
+OBJECTS=$(SRC:.cpp=.o)
 
 all: $(NAME)
 
 $(NAME) : $(OBJECTS)
 		$(COMPILER) $(FLAGS) $(OBJECTS) $(SANITAZER) -o $(NAME)
 
-fclean:
+clean:
+	rm -rf $(OBJECTS)
+
+fclean: clean
 	rm -f $(NAME)
 
 re: fclean all
