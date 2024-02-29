@@ -11,7 +11,7 @@ std::string getString(char **argv, std::ifstream& file)
 	int			skip;
 
 	while (std::getline(file, text))
-		fileText.append(text);
+		fileText.append(text).append("\n");
 	if (fileText.find(argv[2]) == std::string::npos)
 		return ("");
 	skip = 0;
@@ -32,28 +32,30 @@ std::string getString(char **argv, std::ifstream& file)
 	return (fileText);
 }
 
-void replaceFile(std::string filename, std::ifstream& file, char **argv)
+int replaceFile(std::string filename, std::ifstream& file, char **argv)
 {
 	std::string	fileText;
 
 	fileText = getString(argv, file);
 	if (fileText.empty()){
 		std::cout << "No matches found!" << std::endl;
-		return ;
+		return (1);
 	}
 	filename = filename + ".replace";
 	std::ofstream outputFile(filename.c_str());
 	if (!outputFile.is_open())
 	{
 		std::cout << "Could not create a file!" << std::endl;
-		return ;
+		return (1);
 	}
 	outputFile << fileText;
+	return (0);
 }
 
 int main(int argc, char **argv)
 {
 	std::string filename;
+	int			status;
 
 	if (argc != 4)
 	{
@@ -67,5 +69,8 @@ int main(int argc, char **argv)
 		std::cout << "File does not exist!" << std::endl;
 		return (1);
 	}
-	replaceFile(filename, file, argv);
+	status = replaceFile(filename, file, argv);
+	if (status == 0)
+		std::cout << "Success!" << std::endl;
+	return (status);
 }
