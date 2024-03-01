@@ -7,6 +7,9 @@ OBJECTS=$(SRC:.cpp=.o)
 
 all: $(NAME)
 
+.cpp.o:
+	$(COMPILER) $(FLAGS) -c $< -o $@
+
 $(NAME) : $(OBJECTS)
 		$(COMPILER) $(FLAGS) $(OBJECTS) $(SANITAZER) -o $(NAME)
 
