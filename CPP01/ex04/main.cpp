@@ -66,7 +66,7 @@ int main(int argc, char **argv)
 	std::ifstream file(filename.c_str());
 	if (!file.is_open())
 	{
-		std::cout << "File does not exist!" << std::endl;
+		std::cout << "File does not exist or you do not have read permissions" << std::endl;
 		return (1);
 	}
 	status = replaceFile(filename, file, argv);
