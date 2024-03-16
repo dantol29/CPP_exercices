@@ -2,7 +2,7 @@ COMPILER=c++
 FLAGS=-Wall -Wextra -Werror -std=c++98
 NAME=trap
 SANITAZER=-fsanitize=address
-SRC=main.cpp ClapTrap.cpp ScavTrap.cpp FragTrap.cpp
+SRC=main.cpp ClapTrap.cpp ScavTrap.cpp FragTrap.cpp DIamoinTrap.cpp
 OBJECTS=$(SRC:.cpp=.o)
 
 all: $(NAME)
