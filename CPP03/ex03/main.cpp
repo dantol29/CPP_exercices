@@ -1,17 +1,13 @@
 #include "ClapTrap.hpp"
 #include "ScavTrap.hpp"
 #include "FragTrap.hpp"
+#include "DiamondTrap.hpp"
 
 int main(void){
-	ClapTrap luke("Luke");
-	ClapTrap unknown;
-	ScavTrap bob("Bob");
+	DiamondTrap diamond("diamond");
 	FragTrap john("John");
-
-	unknown.takeDamage(5);
-	luke.takeDamage(9);
-	luke.attack(unknown.getName());
-	bob.attack(luke.getName());
-	john.attack(luke.getName());
+	
 	john.highFivesGuys();
+	diamond.attack(john.getName());
+	diamond.whoAmI();
 }

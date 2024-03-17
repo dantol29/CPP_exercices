@@ -12,3 +12,7 @@ DiamondTrap::DiamondTrap(std::string name) : ScavTrap(name), FragTrap(name){
 DiamondTrap::~DiamondTrap(){
 	std::cout << "Destructor called (DiamondTrap)" << std::endl;
 }
+
+void DiamondTrap::whoAmI(){
+	std::cout << "My name is " << this->_name << ", ClapTrap's name is " << ClapTrap::_name << std::endl;
+}

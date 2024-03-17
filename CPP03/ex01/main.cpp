@@ -10,4 +10,5 @@ int main(void){
 	luke.takeDamage(9);
 	luke.attack(unknown.getName());
 	bob.attack(luke.getName());
+	bob.beRepaired(1);
 }
