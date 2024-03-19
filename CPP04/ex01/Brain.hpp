@@ -9,10 +9,10 @@ class Brain{
 		~Brain();
 		Brain(const Brain& obj);
 		Brain& operator=(const Brain& obj);
-		std::string getIdea(int index) const;
-		void setIdea();
+		std::string getIdea(const int index) const;
+		void setIdea(std::string idea);
 	private:
-		std::string ideas[100];
+		std::string _ideas[100];
 };
 
 #endif
