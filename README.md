@@ -1,14 +1,65 @@
 # C++ Practice
+## 1. Intro to OOP
+### ex00 - simple megaphone
+```
+Introduction to output stream in C++
+std::out, std::in, std::endl, <<, >>
+```
 
-## C00
+### ex01 - encapsulation
+```
+Encapsulation principles - All attributes have to be private and accesesed through getters and setters
+```
+<pre lang=c++> class Example{
+      private:
+        std::string _name;
+      public:
+        std::string getName() const;
+        void setName(std::string);
+}</pre>
 
-### ex00
+### ex02 - static functions and variables
+```
+Static variables in a class are shared among all instances of that class and are initialized only once
+```
+<pre lang=c++> class Example{
+        private:
+          static int _nbAccounts;
+        public:
+          static int getNbAccounts() const;
+}</pre>
 
-### ex01
+## 2. Memory allocation, references
+### ex00 - simple class allocation
+```
+It is considered bad practice to use malloc in C++ because it does not construct objects
+```
+<pre lang=c++>Zombie* obj = new Zombie(name);
+delete obj;</pre>
 
-### ex02
+### ex01 - multiple objects allocation
+```
+This is the syntax to allocate multiple objects on the heap
+```
+<pre lang=c++>Zombie* objs = new Zombie[N];
+delete[] objs;</pre>
 
+### ex02 - the difference between pointers and references
+```
+References cannot be reassigned to refer to a different object, and they cannot be NULL
+References do not require memory management, as they are simply aliases for existing objects
+```
+<pre lang=c++>std::string test = "HI THIS IS BRAIN";
+std::string* testPTR = &test;
+std::string& testREF = test;
+std::cout << "The memory address of the string variable: " << &test << std::endl;
+std::cout << "The memory address held by stringPTR: " << testPTR << std::endl;
+std::cout << "The memory address held by stringREF: " << &testREF << std::endl;
+std::cout << "The value of the string variable: " << test << std::endl;
+std::cout << "The value pointed by stringPTR: " << *testPTR << std::endl;
+std::cout << "The value pointed by stringREF: " << testREF << std::endl;</pre>
 
-# C01
-
-## ex00
+### ex03 - when to choose references over pointers?
+```
+```
+<pre lang=c++></pre>
