@@ -63,3 +63,50 @@ std::cout << "The value pointed by stringREF: " << testREF << std::endl;</pre>
 ```
 ```
 <pre lang=c++></pre>
+### ex04 - filestream
+```
+```
+<pre lang=c++></pre>
+### ex05 - pointers to members
+```
+```
+<pre lang=c++></pre>
+### ex06 - switch
+```
+```
+<pre lang=c++></pre>
+## 3. Orthodox Canonical Form and Fixed-Point numbers
+### ex00 - structure of canonical form
+```
+```
+<pre lang=c++></pre>
+### ex01 - fixed-point conversion
+```
+```
+<pre lang=c++></pre>
+### ex02 - operator overloads
+```
+```
+<pre lang=c++></pre>
+### ex03 - point inside of a triangle
+```
+```
+<pre lang=c++></pre>
+## 4. Inheritance
+### ex00 - setup of a class
+```
+```
+<pre lang=c++></pre>
+### ex01 - public inheritance, protected keyword
+```
+```
+<pre lang=c++></pre>
+### ex02 - member override
+```
+```
+<pre lang=c++></pre>
+### ex03 - diamond problem (multiple inheritance)
+```
+```
+<pre lang=c++></pre>
+## 5. Polymorphism
