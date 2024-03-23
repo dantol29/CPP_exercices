@@ -3,7 +3,7 @@
 
 #include <iostream>
 #include <exception>
-
+class Form;
 
 class Bureaucrat{
 	private:
@@ -19,6 +19,7 @@ class Bureaucrat{
 		std::string getName() const;
 		void incrementGrade();
 		void decrementGrade();
+		void signForm(Form& obj);
 		class GradeTooLowException : public std::exception{
 			public:
 				const char* what() const throw(){

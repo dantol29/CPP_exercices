@@ -1,4 +1,5 @@
 #include "Bureaucrat.hpp"
+#include "Form.hpp"
 
 Bureaucrat::Bureaucrat() : _name("name is unknown"), _grade(0){
 	std::cout << "Default constructor called" << std::endl;
@@ -69,5 +70,24 @@ void Bureaucrat::decrementGrade(){
 	}
 	catch(const Bureaucrat::GradeTooLowException& obj){
 		std::cout << "Exception caught: " << obj.what() << std::endl;
+	}
+}
+
+void Bureaucrat::signForm(Form& obj){
+	try{
+		if (obj.getGradeToSign() < _grade){
+			std::cout << _name << " couldn't signed " << obj.getName() << " because ";
+			throw(GradeTooLowException());
+		}
+		if (obj.getSigned() == true)
+			throw("form is already signed");
+		obj.beSigned(*this);
+		std::cout << _name << " signed " << obj.getName() << std::endl;
+	}
+	catch(const Bureaucrat::GradeTooLowException& obj){
+		std::cout << "Exception caught: " << obj.what() << std::endl;
+	}
+	catch(...){
+		std::cout << "Exception caught: " << "form is already signed" << std::endl;
 	}
 }
