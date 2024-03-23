@@ -18,7 +18,7 @@ RobotomyRequestForm& RobotomyRequestForm::operator=(const RobotomyRequestForm& o
 	return (*this);
 }
 
-RobotomyRequestForm::RobotomyRequestForm(const std::string target) : AForm("PRobotomy Request Form", 45, 72), _target(target){
+RobotomyRequestForm::RobotomyRequestForm(const std::string target) : AForm("Robotomy Request Form", 45, 72), _target(target){
 	std::cout << "Target constructor called (RobotomyRequestForm)" << std::endl;
 }
 

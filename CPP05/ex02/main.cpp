@@ -19,4 +19,7 @@ int main(){
 	a.executeForm(*president);
 	a.signForm(*robot);
 	a.executeForm(*robot);
+	delete b;
+	delete robot;
+	delete president;
 }

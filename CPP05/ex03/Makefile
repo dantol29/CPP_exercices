@@ -2,7 +2,7 @@ COMPILER=c++
 FLAGS=-Wall -Wextra -Werror -std=c++98
 NAME=office
 SANITAZER=-fsanitize=address
-SRC=main.cpp Bureaucrat.cpp Form.cpp
+SRC=main.cpp Bureaucrat.cpp AForm.cpp  ShrubberyCreationForm.cpp PresidentialPardonForm.cpp RobotomyRequestForm.cpp Intern.cpp
 OBJECTS=$(SRC:.cpp=.o)
 
 all: $(NAME)

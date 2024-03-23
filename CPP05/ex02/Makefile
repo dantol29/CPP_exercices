@@ -11,7 +11,7 @@ all: $(NAME)
 	$(COMPILER) $(FLAGS) -c $< -o $@
 
 $(NAME) : $(OBJECTS)
-		$(COMPILER) $(FLAGS) $(OBJECTS) -o $(NAME)
+		$(COMPILER) $(FLAGS) $(OBJECTS) $(SANITAZER) -o $(NAME)
 
 clean:
 	rm -rf $(OBJECTS)
