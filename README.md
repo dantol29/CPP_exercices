@@ -109,4 +109,63 @@ std::cout << "The value pointed by stringREF: " << testREF << std::endl;</pre>
 ```
 ```
 <pre lang=c++></pre>
+
 ## 5. Polymorphism
+### ex00 - virtual function overload (dynamic)
+```
+```
+<pre lang=c++></pre>
+### ex01 - deep copy, shallow copy
+```
+```
+<pre lang=c++></pre>
+### ex02 - abstract classes, pure virtual functions
+```
+```
+<pre lang=c++></pre>
+### ex03 - interfaces, virtual destructors
+```
+```
+<pre lang=c++></pre>
+
+## 6. Exceptions, Try/Catch
+### ex00 - custom and standard exceptions
+```
+```
+<pre lang=c++></pre>
+### ex01 - more exceptions
+```
+```
+<pre lang=c++></pre>
+### ex02 - try and catch
+```
+```
+<pre lang=c++></pre>
+### ex03 - std::map and how to avoid if/else forest
+```
+```
+<pre lang=c++></pre>
+
+## 7. Casts
+
+## 8. Templates
+### ex00 - function templates
+```
+```
+<pre lang=c++></pre>
+### ex01 - iterator template
+```
+```
+<pre lang=c++></pre>
+### ex02 - try and catch
+```
+```
+<pre lang=c++></pre>
+### ex03 - class template
+```
+```
+<pre lang=c++></pre>
+
+## 9. STL
+
+## 10. Containers
