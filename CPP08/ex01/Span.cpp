@@ -18,7 +18,7 @@ Span::~Span(){
 
 }
 
-Span& Span::operator==(const Span& obj){
+Span& Span::operator=(const Span& obj){
 	if (this != &obj){
 		_size = obj._size;
 		_array = obj._array;

@@ -4,7 +4,7 @@ class Span{
 	public:
 		Span(const unsigned int n);
 		Span(const Span& obj);
-		Span& operator==(const Span& obj);
+		Span& operator=(const Span& obj);
 		~Span();
 		void addNumber(const unsigned int number);
 		void addNumber(std::vector<int>::iterator begin, std::vector<int>::iterator end);
