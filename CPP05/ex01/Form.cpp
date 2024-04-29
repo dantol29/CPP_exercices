@@ -1,5 +1,6 @@
 #include "Form.hpp"
 #include "Bureaucrat.hpp"
+#include <cstdlib>
 
 Form::~Form(){
 	std::cout << "Default destructor called" << std::endl;
@@ -9,9 +10,11 @@ Form::Form(const Form& obj) : _name(obj._name), _signed(obj._signed), _gradeToEx
 	std::cout << "Copy constructor called" << std::endl;
 }
 
-Form::Form(const std::string name, const unsigned int gradeToExecute, const unsigned int gradeToSign) : _name(name),\
- _signed(false), _gradeToExecute(validateNumber(gradeToExecute)), _gradeToSign(validateNumber(gradeToSign)){
+Form::Form(const std::string name, const unsigned int gradeToExecute, const unsigned int gradeToSign) : _name(name), \
+_signed(false), _gradeToExecute(validateNumber(gradeToExecute)), _gradeToSign(validateNumber(gradeToSign))
+{
 	std::cout << "Name constructor called" << std::endl;
+		
 }
 
 unsigned int Form::validateNumber(unsigned int n) const{
@@ -23,9 +26,11 @@ unsigned int Form::validateNumber(unsigned int n) const{
 	}
 	catch(const Form::GradeTooLowException& obj){
 		std::cout << "Exception caught: " << obj.what() << std::endl;
+		std::exit(EXIT_FAILURE);
 	}
 	catch(const Form::GradeTooHighException& obj){
 		std::cout << "Exception caught: " << obj.what() << std::endl;
+		std::exit(EXIT_FAILURE);
 	}
 	return (n);
 }

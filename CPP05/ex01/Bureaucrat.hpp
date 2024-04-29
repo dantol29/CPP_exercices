@@ -9,8 +9,8 @@ class Bureaucrat{
 	private:
 		const std::string	_name;
 		unsigned int		_grade;
-	public:
 		Bureaucrat();
+	public:
 		Bureaucrat(const Bureaucrat& obj);
 		~Bureaucrat();
 		Bureaucrat& operator=(const Bureaucrat& obj);

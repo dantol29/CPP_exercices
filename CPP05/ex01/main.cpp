@@ -2,6 +2,8 @@
 #include "Form.hpp"
 
 int main(){
+	// Form b("promotion", 0, 7); // check exception in the constructor
+	// std::cout << b << std::endl; 
 	Bureaucrat a(3, "Jack");
 	Form b("Promotion", 3, 3);
 

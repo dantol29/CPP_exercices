@@ -18,11 +18,11 @@ class Form{
 		~Form();
 		Form(const std::string name, const unsigned int gradeToExecute, const unsigned int gradeToSign);
 		Form& operator=(const Form& obj);
-		void				beSigned(const Bureaucrat& obj);
 		const std::string	getName() const;
 		bool				getSigned() const;
-		unsigned int	getGradeToExecute() const;
-		unsigned int	getGradeToSign() const;
+		unsigned int		getGradeToExecute() const;
+		unsigned int		getGradeToSign() const;
+		void				beSigned(const Bureaucrat& obj);
 		class GradeTooLowException : public std::exception{
 			public:
 				const char* what() const throw(){

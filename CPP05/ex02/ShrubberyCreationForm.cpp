@@ -12,7 +12,7 @@ ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm& obj) :
 ShrubberyCreationForm& ShrubberyCreationForm::operator=(const ShrubberyCreationForm& obj){
 	std::cout << "Assignment operator called (ShrubberyCreationForm)" << std::endl;
 	if (this != &obj)
-		this->setSigned(obj.getSigned());
+		*this = obj;
 	return (*this);
 }
 

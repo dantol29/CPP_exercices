@@ -14,7 +14,7 @@ RobotomyRequestForm::RobotomyRequestForm(const RobotomyRequestForm& obj) : AForm
 RobotomyRequestForm& RobotomyRequestForm::operator=(const RobotomyRequestForm& obj){
 	std::cout << "Assignment operator called (RobotomyRequestForm)" << std::endl;
 	if (this != &obj)
-		this->setSigned(obj.getSigned());
+		*this = obj;
 	return (*this);
 }
 
@@ -38,8 +38,8 @@ int RobotomyRequestForm::execute(const Bureaucrat& obj) const{
 		return (0);
 	}
 	std::srand(static_cast<unsigned int>(std::time(NULL)));
-	int range = 2 - 1 + 1;
-	int a = std::rand() % range + 1;
+	int range = 2;
+	int a = std::rand() % range;
 	if (a == 1)
 		std::cout << obj.getName() << " has been robotomized successfully" << std::endl;
 	else

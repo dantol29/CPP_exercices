@@ -9,12 +9,12 @@ class Bureaucrat{
 	private:
 		const std::string	_name;
 		unsigned int		_grade;
-	public:
 		Bureaucrat();
+	public:
 		Bureaucrat(const Bureaucrat& obj);
+		Bureaucrat(unsigned int grade, std::string name);
 		~Bureaucrat();
 		Bureaucrat& operator=(const Bureaucrat& obj);
-		Bureaucrat(unsigned int grade, std::string name);
 		unsigned int getGrade() const;
 		std::string getName() const;
 		void incrementGrade();

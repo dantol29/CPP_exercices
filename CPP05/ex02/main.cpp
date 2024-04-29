@@ -10,15 +10,18 @@ int main(){
 	AForm* b = new ShrubberyCreationForm("home");
 	AForm* president = new PresidentialPardonForm("Joshua");
 	AForm* robot = new RobotomyRequestForm("John");
-	std::cout << a << std::endl;
+
 	a.executeForm(*b);
 	a.signForm(*b);
 	a.executeForm(*b);
 	c.executeForm(*b);
 	a.signForm(*president);
 	a.executeForm(*president);
+	c.executeForm(*president);
 	a.signForm(*robot);
 	a.executeForm(*robot);
+	robot->execute(a);
+	robot->execute(c);
 	delete b;
 	delete robot;
 	delete president;

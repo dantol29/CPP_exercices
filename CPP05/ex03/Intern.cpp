@@ -24,22 +24,35 @@ Intern& Intern::operator=(const Intern& obj){
 	return (*this);
 }
 
-AForm* Intern::makeForm(std::string name, std::string target){
-	std::map<std::string, AForm*> stringMap;
-	stringMap["presidential pardon"] = new PresidentialPardonForm(target);
-	stringMap["shrubbery creation"] = new ShrubberyCreationForm(target);
-	stringMap["robotomy request"] = new RobotomyRequestForm(target);
+struct FormLookup {
+    const char* name;
+    AForm* form;
+};
 
-	std::map<std::string, AForm*>::iterator it = stringMap.find(name);
-    if (it != stringMap.end()){
-		for (std::map<std::string, AForm*>::iterator it2 = stringMap.begin(); it2 != stringMap.end(); it2++){
-			if (it2->second != it->second)
-				delete it2->second;
+AForm* Intern::makeForm(std::string name, std::string target){
+	unsigned int size = 3;
+	AForm* foundForm = NULL;
+	FormLookup a[] = {
+	{"presidential pardon", new PresidentialPardonForm(target)}, 
+	{"shrubbery creation", new ShrubberyCreationForm(target)},
+	{"robotomy request", new RobotomyRequestForm(target)}
+	};
+
+    for (unsigned int i = 0; i < size; ++i){
+		if (name == a[i].name){
+			foundForm = a[i].form;
+			continue;
 		}
-        return (it->second);
+		delete a[i].form;
 	}
-    std::cout << "Form does not exist" << std::endl;
-	for (std::map<std::string, AForm*>::iterator it2 = stringMap.begin(); it2 != stringMap.end(); it2++)
-			delete it2->second;
-	return (NULL);
+	if (foundForm == NULL)
+		std::cout << "Intern: No form found, Sir!" << std::endl;
+	return (foundForm);
 }
+
+// This is how I would normally do it, but STL is forbidden!
+// std::map<std::string, AForm*> stringMap;
+// stringMap["presidential pardon"] = new PresidentialPardonForm(target);
+// stringMap["shrubbery creation"] = new ShrubberyCreationForm(target);
+// stringMap["robotomy request"] = new RobotomyRequestForm(target);
+// std::map<std::string, AForm*>::iterator it = stringMap.find(name);

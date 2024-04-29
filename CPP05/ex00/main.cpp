@@ -10,4 +10,5 @@ int main(){
 	std::cout << a << std::endl;
 	a.decrementGrade();
 	std::cout << a << std::endl;
+	Bureaucrat b(151, "Jack");
 }
