@@ -15,18 +15,10 @@ AForm::AForm(const std::string name, const unsigned int gradeToExecute, const un
 }
 
 unsigned int AForm::validateNumber(unsigned int n) const{
-	try{
-		if (n < 1)
-			throw(GradeTooHighException());
-		else if (n > 150)
-			throw(GradeTooLowException());
-	}
-	catch(const AForm::GradeTooLowException& obj){
-		std::cout << "Exception caught: " << obj.what() << std::endl;
-	}
-	catch(const AForm::GradeTooHighException& obj){
-		std::cout << "Exception caught: " << obj.what() << std::endl;
-	}
+	if (n < 1)
+		throw(GradeTooHighException());
+	else if (n > 150)
+		throw(GradeTooLowException());
 	return (n);
 }
 
@@ -47,19 +39,11 @@ const std::string AForm::getName() const{
 }
 
 void AForm::beSigned(const Bureaucrat& obj){
-	try{
-		if (obj.getGrade() > _gradeToSign)
-			throw(GradeTooLowException());
-		if (_signed == true)
-			throw("form is already signed");
-		_signed = true;
-	}
-	catch(const AForm::GradeTooLowException& obj){
-		std::cout << "Exception caught: " << obj.what() << std::endl;
-	}
-	catch(...){
-		std::cout << "Exception caught: " << "form is already signed" << std::endl;
-	}
+	if (obj.getGrade() > _gradeToSign)
+		throw(GradeTooLowException());
+	if (_signed == true)
+		throw("form is already signed");
+	_signed = true;
 }
 
 void AForm::setSigned(bool n){

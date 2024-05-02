@@ -21,20 +21,10 @@ PresidentialPardonForm::PresidentialPardonForm(const std::string target) : AForm
 }
 
 int PresidentialPardonForm::execute(const Bureaucrat& obj) const{
-	try{
-		if (this->getSigned() == false)
-			throw("form is not signed!");
-		if (this->getGradeToExecute() < obj.getGrade())
-			throw(GradeTooLowException());
-	}
-	catch(const PresidentialPardonForm::GradeTooLowException& obj){
-		std::cout << "Exception caught: " << obj.what() << std::endl;
-		return (0);
-	}
-	catch(...){
-		std::cout << "Exception caught: " << "form is not signed!" << std::endl;
-		return (0);
-	}
+	if (this->getSigned() == false)
+		throw("form is not signed!");
+	if (this->getGradeToExecute() < obj.getGrade())
+		throw(GradeTooLowException());
 	std:: cout << "We inform that " << obj.getName() << "has been pardoned by Zaphod Beeblebrox." << std::endl;
 	return (1);
 }

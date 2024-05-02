@@ -46,7 +46,7 @@ AForm* Intern::makeForm(std::string name, std::string target){
 		delete a[i].form;
 	}
 	if (foundForm == NULL)
-		std::cout << "Intern: No form found, Sir!" << std::endl;
+		throw("Intern: No form found, Sir!");
 	return (foundForm);
 }
 

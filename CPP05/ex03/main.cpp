@@ -10,13 +10,21 @@ int main(){
 	Intern someRandomIntern;
 	AForm* rrf;
 	AForm* unknown;
+	std::cout << "\n\n\n\n\n\n" << std::endl;
 
-	rrf = someRandomIntern.makeForm("robotomy request", "Bender");
-	unknown = someRandomIntern.makeForm("earn money", "you");
-	std::cout << "\n\n\n\n\n" << std::endl;
-	std::cout << *rrf << std::endl;
-	rrf->beSigned(b);
-	rrf->execute(b);
-	std::cout << "\n\n\n\n\n" << std::endl;
-	delete rrf;
+	try {
+		rrf = someRandomIntern.makeForm("robotomy request", "Bender");
+		std::cout << *rrf << std::endl;
+		rrf->beSigned(b);
+		rrf->execute(b);
+		delete rrf;
+		unknown = someRandomIntern.makeForm("earn money", "you");
+	}
+	catch (std::exception& e){
+		std::cout << "Exception caught: " << e.what() << std::endl;
+	}
+	catch (const char *errorMessage) {
+		std::cerr << "Exception caught: " << errorMessage << std::endl;
+	}
+	std::cout << "\n\n\n\n\n\n" << std::endl;
 }

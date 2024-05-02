@@ -23,20 +23,10 @@ RobotomyRequestForm::RobotomyRequestForm(const std::string target) : AForm("PRob
 }
 
 int RobotomyRequestForm::execute(const Bureaucrat& obj) const{
-	try{
-		if (this->getSigned() == false)
-			throw("form is not signed!");
-		if (this->getGradeToExecute() < obj.getGrade())
-			throw(GradeTooLowException());
-	}
-	catch(const RobotomyRequestForm::GradeTooLowException& obj){
-		std::cout << "Exception caught: " << obj.what() << std::endl;
-		return (0);
-	}
-	catch(...){
-		std::cout << "Exception caught: " << "form is not signed!" << std::endl;
-		return (0);
-	}
+	if (this->getSigned() == false)
+		throw("form is not signed!");
+	if (this->getGradeToExecute() < obj.getGrade())
+		throw(GradeTooLowException());
 	std::srand(static_cast<unsigned int>(std::time(NULL)));
 	int range = 2;
 	int a = std::rand() % range;

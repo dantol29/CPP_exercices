@@ -4,11 +4,31 @@ int main(){
 	Bureaucrat a(2, "Jack");
 
 	std::cout << a << std::endl;
-	a.incrementGrade();
+	try{
+		a.incrementGrade();
+	}
+	catch (const std::exception& e){
+		std::cout << "Exception caught " << e.what() << std::endl;
+	}
 	std::cout << a << std::endl;
-	a.incrementGrade();
+	try{
+		a.incrementGrade();
+	}
+	catch (const std::exception& e){
+		std::cout << "Exception caught " << e.what() << std::endl;
+	}
 	std::cout << a << std::endl;
-	a.decrementGrade();
+	try{
+		a.decrementGrade();
+	}
+	catch (const std::exception& e){
+		std::cout << "Exception caught " << e.what() << std::endl;
+	}
 	std::cout << a << std::endl;
-	Bureaucrat b(151, "Jack");
+	try{
+		Bureaucrat b(151, "Jack");
+	}
+	catch (const std::exception& e){
+		std::cout << "Exception caught " << e.what() << std::endl;
+	}
 }

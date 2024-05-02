@@ -15,19 +15,11 @@ Bureaucrat::Bureaucrat(const Bureaucrat& obj) : _name(obj._name), _grade(obj._gr
 
 Bureaucrat::Bureaucrat(unsigned int grade, std::string name) : _name(name){
 	std::cout << "Name constructor called" << std::endl;
-	try{
-		if (grade < 1)
-			throw(GradeTooHighException());
-		else if (grade > 150)
-			throw(GradeTooLowException());
-		_grade = grade;
-	}
-	catch(const Bureaucrat::GradeTooLowException& obj){
-		std::cout << "Exception caught: " << obj.what() << std::endl;
-	}
-	catch(const Bureaucrat::GradeTooHighException& obj){
-		std::cout << "Exception caught: " << obj.what() << std::endl;
-	}
+	if (grade < 1)
+		throw(GradeTooHighException());
+	else if (grade > 150)
+		throw(GradeTooLowException());
+	_grade = grade;
 }
 
 Bureaucrat& Bureaucrat::operator=(const Bureaucrat& obj){
@@ -52,44 +44,26 @@ std::ostream& operator<<(std::ostream& out, const Bureaucrat& obj){
 }
 
 void Bureaucrat::incrementGrade(){
-	try{
-		if (_grade - 1 < 1)
-			throw(GradeTooHighException());
-		_grade -= 1;
-	}
-	catch(const Bureaucrat::GradeTooHighException& obj){
-		std::cout << "Exception caught: " << obj.what() << std::endl;
-	}
+	if (_grade - 1 < 1)
+		throw(GradeTooHighException());
+	_grade -= 1;
 }
 
 void Bureaucrat::decrementGrade(){
-	try{
-		if (_grade + 1 > 150)
-			throw(GradeTooLowException());
-		_grade += 1;
-	}
-	catch(const Bureaucrat::GradeTooLowException& obj){
-		std::cout << "Exception caught: " << obj.what() << std::endl;
-	}
+	if (_grade + 1 > 150)
+		throw(GradeTooLowException());
+	_grade += 1;
 }
 
 void Bureaucrat::signForm(AForm& obj){
-	try{
-		if (obj.getGradeToSign() < _grade){
-			std::cout << _name << " couldn't signed " << obj.getName() << " because ";
-			throw(GradeTooLowException());
-		}
-		if (obj.getSigned() == true)
-			throw("form is already signed");
-		obj.beSigned(*this);
-		std::cout << _name << " signed " << obj.getName() << std::endl;
+	if (obj.getGradeToSign() < _grade){
+		std::cout << _name << " couldn't signed " << obj.getName() << " because ";
+		throw(GradeTooLowException());
 	}
-	catch(const Bureaucrat::GradeTooLowException& obj){
-		std::cout << "Exception caught: " << obj.what() << std::endl;
-	}
-	catch(...){
-		std::cout << "Exception caught: " << "form is already signed" << std::endl;
-	}
+	if (obj.getSigned() == true)
+		throw("form is already signed");
+	obj.beSigned(*this);
+	std::cout << _name << " signed " << obj.getName() << std::endl;
 }
 
 void Bureaucrat::executeForm(const AForm& form){
