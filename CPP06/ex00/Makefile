@@ -1,8 +1,8 @@
 COMPILER=c++
 FLAGS=-Wall -Wextra -Werror -std=c++98
-NAME=office
+NAME=converter
 SANITAZER=-fsanitize=address
-SRC=main.cpp Bureaucrat.cpp
+SRC=main.cpp ScalarConverter.cpp
 OBJECTS=$(SRC:.cpp=.o)
 
 all: $(NAME)
