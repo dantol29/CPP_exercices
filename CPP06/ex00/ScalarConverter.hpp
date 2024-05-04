@@ -4,16 +4,17 @@
 # include <string>
 # include <iostream>
 # include <cstdlib>
+# include <iomanip>
 
 class ScalarConverter
 {
 	public:
-		static void convert(const std::string& element);
+		static void convert(std::string& element);
 	private:
 		~ScalarConverter();
 		ScalarConverter();
 		ScalarConverter(const ScalarConverter& obj);
-		ScalarConverter& operator==(const ScalarConverter& obj);
+		ScalarConverter& operator=(const ScalarConverter& obj);
 };
 
 # endif
