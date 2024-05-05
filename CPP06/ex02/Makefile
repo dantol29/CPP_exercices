@@ -1,8 +1,8 @@
 COMPILER=c++
 FLAGS=-Wall -Wextra -Werror -std=c++98
-NAME=office
+NAME=dynamic
 SANITAZER=-fsanitize=address
-SRC=main.cpp Bureaucrat.cpp
+SRC=main.cpp A.cpp B.cpp C.cpp Base.cpp
 OBJECTS=$(SRC:.cpp=.o)
 
 all: $(NAME)
