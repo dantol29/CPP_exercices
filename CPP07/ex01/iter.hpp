@@ -1,5 +1,5 @@
-template <typename T>
-void	iter(T* a, int size, void (*function)(T& a))
+template <typename T, typename F>
+void	iter(T* a, int size, void (*function)(F& a))
 {
 	int i = 0;
 	

@@ -28,15 +28,21 @@ Array<T>::~Array(){
 
 template <typename T>
 Array<T>::Array(const Array& obj){
-	_array = new Array(*obj._array);
-	_size = obj.size;
+	_array = new T[obj._size];
+	_size = obj._size;
+
+	for (unsigned int i = 0; i < _size; i++)
+		_array[i] = obj._array[i];
 }
 
 template <typename T>
 Array<T>& Array<T>::operator=(const Array& obj){
 	if (this != &obj){
-		_array = new Array(*obj._array);
+		_array = new T[obj._size];
 		_size = obj._size;
+
+		for (unsigned int i = 0; i < _size; i++)
+			_array[i] = obj._array[i];
 	}
 	return (*this);
 }
