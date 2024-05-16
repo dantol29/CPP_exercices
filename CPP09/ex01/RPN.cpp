@@ -70,6 +70,8 @@ bool RPN::calculate(std::string str)
 		// skip whitespaces
 		while (i < str.length() && str[i] == ' ')
 			i++;
+		if (i == str.length())
+			break;
 
 		number = str[i];
 		if (number >= '0' && number <= '9')
