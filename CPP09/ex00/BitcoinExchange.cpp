@@ -95,7 +95,7 @@ Date BitcoinExchange::isValidDate(std::string date) const
 	dateStruct.year = stringToInt(date.substr(0, 4));
 	if (dateStruct.year < 2008 || dateStruct.year > 2024)
 	{
-		std::cerr << "Error: invalid year value" << std::endl;
+		std::cerr << "Error: invalid year value: ";
 		return (error);
 	}
 
@@ -107,7 +107,7 @@ Date BitcoinExchange::isValidDate(std::string date) const
 	dateStruct.month = stringToInt(date.substr(5, 2));
 	if (dateStruct.month < 1 || dateStruct.month > 12)
 	{
-		std::cerr << "Error: invalid month value" << std::endl;
+		std::cerr << "Error: invalid month value: ";
 		return (error);
 	}
 
@@ -119,7 +119,7 @@ Date BitcoinExchange::isValidDate(std::string date) const
 	dateStruct.day = stringToInt(date.substr(8, 2));
 	if (dateStruct.day < 1 || dateStruct.day > 31)
 	{
-		std::cerr << "Error: invalid day value" << std::endl;
+		std::cerr << "Error: invalid day value: " ;
 		return (error);
 	}
 	return (dateStruct);
