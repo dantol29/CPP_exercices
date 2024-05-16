@@ -1,8 +1,8 @@
 COMPILER=c++
 FLAGS=-Wall -Wextra -Werror -std=c++98
-NAME=btc
+NAME=RPN
 SANITAZER=-fsanitize=address
-SRC=main.cpp BitcoinExchange.cpp
+SRC=main.cpp RPN.cpp
 OBJECTS=$(SRC:.cpp=.o)
 
 all: $(NAME)
