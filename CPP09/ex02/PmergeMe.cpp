@@ -83,7 +83,8 @@ clock_t PmergeMe::getVectorTime() const
 
 void PmergeMe::printTime(clock_t argTime) const
 {
-	std::cout << std::fixed << std::setprecision(10) << (float)argTime/CLOCKS_PER_SEC << " seconds" << std::endl;
+	double microseconds = static_cast<double>(argTime) / CLOCKS_PER_SEC * 1000000;
+    std::cout << std::fixed << std::setprecision(2) << microseconds << " microseconds" << std::endl;
 }
 
 void PmergeMe::printContainer(bool isVector) const
