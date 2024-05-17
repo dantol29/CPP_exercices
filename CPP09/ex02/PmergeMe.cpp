@@ -213,57 +213,47 @@ void PmergeMe::insertionSort(bool isVector)
 void PmergeMe::binarySearch(bool isVector)
 {
 	unsigned int mid;
+	int left;
+	int right;
 
 	
 	if (isVector)
 	{
-		if (_bigVector.size() < 2)
-			return ;
 		for (unsigned int i = 0; i < _bigVector.size(); ++i)
 		{
-			mid = (_smallVector.size() - 1) / 2;
-			
-			if (_bigVector[i] < _smallVector[mid])
+			left = 0;
+			right = _smallVector.size();
+			while (left < right)
 			{
-				while (mid > 0 && _bigVector[i] < _smallVector[mid])
-					--mid;
+				mid = left + (right - left) / 2;
+				if (_bigVector[i] < _smallVector[mid])
+					right = mid;
+				else
+					left = mid + 1;
 			}
-			else
-			{
-				while (mid < _smallVector.size() && _bigVector[i] > _smallVector[mid])
-					++mid;
-			}
-			_smallVector.insert(_smallVector.begin() + mid, _bigVector[i]);
+			_smallVector.insert(_smallVector.begin() + left, _bigVector[i]);
 		}
 	}
 	else
 	{
-		if (_bigList.size() < 2)
-			return ;
-		std::list<int>::iterator sm = _smallList.begin();
+		std::list<int>::iterator sm;
 
 		for (std::list<int>::iterator it = _bigList.begin(); it != _bigList.end(); ++it)
 		{
-			mid = (_smallList.size() - 1) / 2;
+			left = 0;
+			right = _smallList.size();
+			while (left < right)
+			{
+				mid = left + (right - left) / 2;
+				sm = _smallList.begin();
+				std::advance(sm, mid);
+				if (*it < *sm)
+					right = mid;
+				else
+					left = mid + 1;
+			}
 			sm = _smallList.begin();
-			std::advance(sm, mid);
-
-			if (*it < *sm)
-			{
-				while (mid > 0 && *it < *sm)
-				{
-					--mid;
-					--sm;
-				}
-			}
-			else
-			{
-				while (mid < _smallList.size() && *it > *sm)
-				{
-					++mid;
-					++sm;
-				}
-			}
+			std::advance(sm, left);
 			_smallList.insert(sm, *it);
 		}
 	}
